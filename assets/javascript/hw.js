@@ -9,7 +9,7 @@ function buttonCreation() {
 	$("#comedianButton").empty();
 
 	//Looping through the array of comics
-	for (var i = 0; i < comic.length; i++) {
+	for (var i = 0; i < comics.length; i++) {
 		// Dynamically creating the buttons
 		var comicName = $("<button>");
 		//adding a class
@@ -19,3 +19,16 @@ function buttonCreation() {
 		$("#comedianButton").append(comicName);
 	}
 }
+
+//This function handles events where one button is clicked
+$("#addComic").on("click", function(event) {
+	event.preventDefault();
+
+	//Adding the comic from the textbox to our comics array
+	comics.push(comedian);
+	console.log(comics)
+
+	//Calling the buttonCreation function
+	buttonCreation();
+});
+
