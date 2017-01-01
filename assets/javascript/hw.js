@@ -1,34 +1,23 @@
-//Intiail Array of Standups
+//Intial Array of Standups
 var comics = ["Richard Pryor", "John Pinette", "Amy Schumer", "Dave Chappelle", "Kathleen Madigan"];
 
-//function to create buttons dynamically
-function buttonCreation() {
-	//Deleting the button prior to adding a new one.
-	//This is needed so we won't get repeat buttons.
-
-	$("#comedianButton").empty();
-
-	//Looping through the array of comics
-	for (var i = 0; i < comics.length; i++) {
-		// Dynamically creating the buttons
-		var comicName = $("<button>");
-		//adding a class
-		comicName.addClass("comedian");
-		comicName.attr("data-name", comics[i]);
-		comicName.text(comics[i]);
-		$("#comedianButton").append(comicName);
+function renderButtons(){
+	$("#buttons-view").empty();
+	for(var i = 0; i < comics.length; i++) {
+		var a = $("<button>");
+		a.addClass("comic");
+		a.attr("data-name", comics[i]);
+		a.text(comics[i]);
+		$("#buttons-view").append(a);
 	}
 }
 
-//This function handles events where one button is clicked
-$("#addComic").on("click", function(event) {
+$("#add-comic").on("click", function(event){
 	event.preventDefault();
-
-	//Adding the comic from the textbox to our comics array
+	var comedian = $("#comic-input").val().trim();
 	comics.push(comedian);
-	console.log(comics)
 
-	//Calling the buttonCreation function
-	buttonCreation();
+renderButtons();
 });
 
+renderButtons();
