@@ -13,7 +13,7 @@ function renderButtons() {
 		$("#comedianButton").append(a);
 	}
 }
-
+function displayComicGiphy() {
 $("button").on("click", function() {
 	$("#comicGIF").empty();
 	var comedian = $(this).data("name");
@@ -36,6 +36,8 @@ $("button").on("click", function() {
 		}
 	});
 });
+}
+
 
 // $("#addComic").on("click", function(event) {
 // 	event.preventDefault();
@@ -44,5 +46,7 @@ $("button").on("click", function() {
 
 // renderButtons();
 // });
+
+$(document).on("click", ".comic", displayComicGiphy);
 
 renderButtons();
