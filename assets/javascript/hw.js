@@ -21,7 +21,7 @@ var comics = ["Richard Pryor", "George Carlin", "Amy Schumer", "Dave Chappelle",
 	 			var rating = results[i].rating; 
 	 			var p = $("<p>").text("Rating: " + rating); 
 	 			var comicsImage = $("<img>"); 
-	 			comicsImage.attr("src", results[i].images.fixed_height.url); 
+	 			comicsImage.attr("src", results[i].images.fixed_height_still.url); 
 	 			standupDiv.append(p); 
 	 			standupDiv.prepend(comicsImage); 
 	 			$("#comicGIF").prepend(standupDiv); 
