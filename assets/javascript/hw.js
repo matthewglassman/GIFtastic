@@ -1,21 +1,11 @@
 //GIPHY API public key dc6zaTOxFJmzC
 
 //Intial Array of Standups
-var comics = ["Richard Pryor", "John Pinette", "Amy Schumer", "Dave Chappelle", "Kathleen Madigan"];
+var comics = ["Richard Pryor", "Dom Irrera", "Amy Schumer", "Dave Chappelle", "Kathleen Madigan"];
 
-function renderButtons() {
-	$("#comedianButton").empty();
-	for(var i = 0; i < comics.length; i++) {
-		var a = $("<button>");
-		a.addClass("comic");
-		a.attr("data-name", comics[i]);
-		a.text(comics[i]);
-		$("#comedianButton").append(a);
-	}
-}
 function displayComicGiphy() {
 $("button").on("click", function() {
-	$("#comicGIF").empty();
+	//$("#comicGIF").empty();
 	var comedian = $(this).data("name");
 	var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + comedian + "&api_key=dc6zaTOxFJmzC&limit=10";
 	$.ajax({
@@ -30,13 +20,25 @@ $("button").on("click", function() {
 			var p = $("<p>").text("Rating: " + rating);
 			var comicsImage = $("<img>");
 			comicsImage.attr("src", results[i].images.fixed_height.url);
-			standupDiv.prepend(p);
+			standupDiv.append(p);
 			standupDiv.prepend(comicsImage);
 			$("#comicGIF").prepend(standupDiv);
 		}
 	});
 });
 }
+
+function renderButtons() {
+	$("#comedianButton").empty();
+	for(var i = 0; i < comics.length; i++) {
+		var a = $("<button>");
+		a.addClass("comic");
+		a.attr("data-name", comics[i]);
+		a.text(comics[i]);
+		$("#comedianButton").append(a);
+	}
+}
+
 
 
 // $("#addComic").on("click", function(event) {
@@ -47,6 +49,6 @@ $("button").on("click", function() {
 // renderButtons();
 // });
 
-$(document).on("click", ".comic", displayComicGiphy);
+$("#comedianButton").on("click", ".comic", displayComicGiphy);
 
 renderButtons();
