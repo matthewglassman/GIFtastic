@@ -22,6 +22,10 @@ var comics = ["Richard Pryor", "George Carlin", "Amy Schumer", "Dave Chappelle",
 	 			var p = $("<p>").text("Rating: " + rating); 
 	 			var comicsImage = $("<img>"); 
 	 			comicsImage.attr("src", results[i].images.fixed_height_still.url); 
+
+	 			//Variables to hold the state of the gif both still and animated
+	 			still = $(this).attr("src", results[i].images.fixed_height_still.url);
+	 			animate = $(this).attr("src", results[i].images.fixed_height.url);
 	 			standupDiv.append(p); 
 	 			standupDiv.prepend(comicsImage); 
 	 			$("#comicGIF").prepend(standupDiv); 
@@ -29,7 +33,11 @@ var comics = ["Richard Pryor", "George Carlin", "Amy Schumer", "Dave Chappelle",
 	 	}); 
 	 });
  
- 
+ //onClick pause or animate photos
+ $(".standup").on("click", function(){
+ 	
+ })
+
  function renderButtons() { 
  	$("#comedianButton").empty(); 
  	for(var i = 0; i < comics.length; i++) { 
