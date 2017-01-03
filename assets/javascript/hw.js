@@ -17,7 +17,7 @@ var comics = ["Richard Pryor", "George Carlin", "Amy Schumer", "Dave Chappelle",
 	 		var results = response.data;
 	 		$("#comicGIF").empty(); 
 	 		for (var i = 0; i < results.length; i++) { 
-	 			var standupDiv = $("<div class='standup'>"); 
+	 			//var standupDiv = $("<div class='standup'>"); 
 	 			var rating = results[i].rating; 
 	 			var p = $("<p>").text("Rating: " + rating); 
 	 			var comicsImage = $("<img>"); 
@@ -31,9 +31,9 @@ var comics = ["Richard Pryor", "George Carlin", "Amy Schumer", "Dave Chappelle",
 	 			//Variables to hold the state of the gif both still and animated
 	 			//still = $(this).attr("src", results[i].images.fixed_height_still.url);
 	 			//animate = $(this).attr("src", results[i].images.fixed_height.url);
-	 			standupDiv.append(p); 
-	 			standupDiv.prepend(comicsImage); 
-	 			$("#comicGIF").prepend(standupDiv); 
+	 			$("#comicGIF").prepend(p); 
+	 			//comicsImage.prepend(comicsImage); 
+	 			$("#comicGIF").prepend(comicsImage); 
 	 		} 
 	 	}); 
 	 });
@@ -42,8 +42,8 @@ var comics = ["Richard Pryor", "George Carlin", "Amy Schumer", "Dave Chappelle",
  $(".comedygif").on("click", function(){
  var state = $(this).attr("status");
 
-      if (status === "still") {
-        $(this).attr("src", $(this).attr("animate"));
+      if (state === "still") {
+        $(this).attr("src", $(this).attr(animate));
         $(this).attr("status", "animate");
       } else {
         // If the clicked image's state is still, update its src attribute to what its data-animate value is.
