@@ -101,13 +101,13 @@ var comics = ["Richard Pryor", "George Carlin", "Amy Schumer", "Dave Chappelle",
 
 
 
-// // $("#addComic").on("click", function(event) {
-// // 	event.preventDefault();
-// // 	var comedian = $("#standupComic").val().trim();
-// // 	comics.push(comedian);
+ $("#addComic").on("click", function(event) {
+event.preventDefault();
+var comedian = $("#standupComic").val().trim();
+comics.push(comedian);
 
-// // renderButtons();
-// // });
+renderButtons();
+});
 
 // $("#comedianButton").on("click", ".comic", displayComicGiphy);
 
