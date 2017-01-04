@@ -8,7 +8,7 @@ var comics = ["Richard Pryor", "George Carlin", "Amy Schumer", "Dave Chappelle",
  	$(document).on("click", ".comic", function() {
  		//$("#comicGIF").empty(); 
 	 	var comedian = $(this).data("name"); 
-	 	var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + comedian + "&api_key=dc6zaTOxFJmzC&limit=10"; 
+	 	var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + comedian + "&api_key=dc6zaTOxFJmzC&limit=10"; 
 	 	$.ajax({ 
 	 		url: queryURL, 
 	 		method: "GET" 
@@ -31,9 +31,9 @@ var comics = ["Richard Pryor", "George Carlin", "Amy Schumer", "Dave Chappelle",
 	 			//Variables to hold the state of the gif both still and animated
 	 			//still = $(this).attr("src", results[i].images.fixed_height_still.url);
 	 			//animate = $(this).attr("src", results[i].images.fixed_height.url);
-	 			$("#comicGIF").prepend(p); 
+	 			$("#comicGIF").append(p); 
 	 			//comicsImage.prepend(comicsImage); 
-	 			$("#comicGIF").prepend(comicsImage); 
+	 			$("#comicGIF").append(comicsImage); 
 	 		} 
 	 	}); 
 	 });
